@@ -1,0 +1,125 @@
+
+.page_art_2{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin: 0;
+}
+
+.art-title{ 
+    position: relative; 
+    height: 60px; 
+    padding: 0px;
+}
+.art-title-img{
+    position: absolute;
+    top: 15px; bottom: 0; left: 50%;
+    width: min(100%, var(--container-max));
+    height: 100%;
+    transform: translateX(-50%);
+    object-fit: cover; object-position: center;
+}
+.art-title-text{
+    position: relative; z-index: 1;
+    height: 100%;
+    display: grid; place-items: center;
+    text-align: center; color: #000000; padding: 0px;
+}
+
+.art-image{
+    padding: 30px;
+}
+.art-image-img{
+    width: 100%;
+    height: auto;
+    display: flex;
+    object-fit: cover;
+    justify-content: center; /* 수평 가운데 */
+}
+@media (min-width: 768px) {
+  .art-image-img {
+    max-width: var(--container-max); 
+    margin: 0 auto;                  /* 가운데 정렬 */
+  }
+}
+
+.art-container{    
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0px;
+  box-sizing: border-box;
+}
+.art-link-btn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 32px;
+    padding: 16px 18px;
+    text-decoration: none;
+    text-decoration: none;
+    color: #111;
+
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f5;
+
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 1px 2px rgba(0,0,0,.06);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+/* 텍스트 */
+.art-link-btn-text{
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+/* 작가명, 제목 */
+.artist-introduce{ 
+    position: relative; 
+    padding: 0px;
+    margin-top: 20px;
+}
+.artist-introduce-img{
+    display: block;
+    width: min(100%, var(--container-max, 660px));
+    height: 100px;
+    margin: 0 auto;
+}
+.artist-introduce-text{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: #000000;   
+    z-index: 2;       
+    margin: 0 auto;
+}
+.artist-introduce-text h1{
+    margin: 0 auto;
+}
+
+/* 작품 설명 */
+.art-explain{ 
+    position: relative; 
+    padding: 30px;
+}
+.art-explain-img{
+    display: block;
+    width: min(100%, var(--container-max, 660px));
+    height: 500px;
+    margin: 0 auto;
+}
+.art-explain-text{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: #000000;          
+    z-index: 2;       
+}

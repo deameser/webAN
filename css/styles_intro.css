@@ -1,0 +1,66 @@
+
+.page_intro{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin: 0;
+}
+.intro-title{ 
+    position: relative; 
+    height: 400px; 
+    padding: 30px;
+    margin: 0 auto;
+  display: flex;
+}
+.info-top-logo-img{
+    position: relative;
+    width: 200px;
+    height: 150px;
+    margin: 150px auto;
+}
+
+.intro-des{ 
+    position: relative; 
+    padding: 30px;
+}
+.intro-des-img{
+    display: block;
+    width: min(100%, var(--container-max, 660px));
+    height: 500px;
+    margin: 0 auto;
+    }
+    /*
+.intro-des-text{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    text-align: left;
+    color: #ffffff;      
+    z-index: 2;
+
+    padding: 40px 44px;
+    box-sizing: border-box; 
+    
+    max-width: min(100%, var(--container-max, 660px));
+    margin: 0 auto;
+}
+*/
+.intro-des-text{
+    position: static;
+    display: block;
+    text-align: left;
+    color: #fff;          
+    z-index: 2;     
+    
+    max-width: min(100%, var(--container-max, 660px));
+    margin: 0 auto;      
+}
+.intro-des-text h1 {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin: 20px auto;
+}

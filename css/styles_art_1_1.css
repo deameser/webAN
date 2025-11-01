@@ -1,0 +1,88 @@
+
+.page_exhibit{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin: 0;
+}
+
+.exhibit-title{ 
+    position: relative; 
+    height: 40px; 
+    padding: 30px;
+}
+.exhibit-title-text{
+    position: relative; z-index: 1;
+    height: 100%;
+    font-size: 0.8rem;
+    display: grid; place-items: center;
+    text-align: center; color: #ffffff; padding: 0px;
+}
+
+.exhibit-title-logo{
+    margin-top: 30px;
+    padding: 30px;
+}
+.exhibit-title-logo-img{
+    width: 100%;
+    height: auto;
+    display: flex;
+    object-fit: cover;
+    justify-content: center; /* 수평 가운데 */
+}
+@media (min-width: 768px) {
+  .exhibit-title-logo-img {
+    max-width: var(--container-max); 
+    margin: 0 auto;                  /* 가운데 정렬 */
+  }
+}
+
+/* 전시 소개 */
+.exhibit-introduce{ 
+    position: relative; 
+    margin-left: 30px;
+}
+.exhibit-introduce-text{
+    position: static;
+    display: block;
+    text-align: left;
+    color: #ffffff;      
+    z-index: 2;
+
+    max-width: min(100%, var(--container-max, 660px));
+    margin: 0 auto;
+}
+.exhibit-introduce-text h1 {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;   /* 100~300 중에 하나 */
+  font-size: 0.8rem;
+  margin: 20px 5px;
+}
+
+/* 전시 설명 */
+.exhibit-explain{ 
+    position: relative; 
+    margin-left: 30px;
+}
+.exhibit-explain-img{
+    display: block;
+    width: min(100%, var(--container-max, 660px));
+    height: 500px;
+    margin: 0 auto;
+}
+.exhibit-explain-text{
+    position: static;
+    display: block;
+    text-align: left;
+    color: #ffffff;      
+    z-index: 2;
+
+    max-width: min(100%, var(--container-max, 660px));
+    margin: 0 auto;
+}
+.exhibit-explain-text h1 {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;   /* 100~300 중에 하나 */
+  font-size: 0.8rem;
+  margin: 20px 5px;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Landing Page</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/styles_index.css" />
+</head>
+<body>
+    <!-- ================= NAV ================= -->
+    <header class="nav">
+        <section class="main-title" id="main-title">            
+            <div class="main-title-overlays">
+                <div class="main-title-overlay-left">
+                    <img
+                        class="main-title-logo-img"
+                        src="./Images/common/seoul_logo_text.png"
+                        alt=""
+                    />
+                </div>
+
+                <div class="main-title-overlay-right">
+                    <img
+                        class="lang-dropdown-icon-img"
+                        src="./Images/common/lang_icon.png"
+                        alt=""
+                    />
+                    <div class="lang-dropdown" id="langDropdown">
+                        <select id="langSelect">
+                            <option value="ko">한국어</option>
+                            <option value="en">English</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
+                </div>
+            </div>          
+        </section>
+    </header>
+
+    <main>
+        <img
+            class="main-title-img"
+            src="./Images/common/atelier_nodeul_logo.png"
+            alt=""
+        />  
+        <!-- ================= Index ================= -->
+        <section class="main-index" id="main-index">
+            <div class="container">
+                <div class="main-index-head">
+                <!-- 섹션 제목 / 부제 -->
+                </div>
+                <div class="main-index-grid">                
+                    <a class="main-index-btn" href="./page_intro.html"
+                        style="--bg: url('../Images/index/index_button.png'); --accent: #ffffff;"
+                        aria-label="">
+                        <span class="index-btn-text">
+                            <h1 data-i18n="index_button_introduce">아뜰리에 노들 소개</h1>
+                        </span>
+                    </a>
+                    
+                    <a class="main-index-btn" href="./page_schedule.html"
+                        style="--bg: url('../Images/index/index_button.png'); --accent: #ffffff;"
+                        aria-label="">
+                        <span class="index-btn-text">
+                            <h1 data-i18n="index_button_schedule">상영 시간표</h1>                            
+                        </span>
+                    </a>
+                    
+                    <a class="main-index-btn" href="./page_art_1_1.html"
+                        style="--bg: url('../Images/index/index_button.png'); --accent: #ffffff;"
+                        aria-label="">
+                        <span class="index-btn-text">
+                            <h1 data-i18n="index_button_exhibit">예술 미디어 스케이프</h1>
+                            <h1 data-i18n="index_button_exhibit_sub">Mediascape</h1>                        
+                        </span>
+                    </a>
+                    
+                    <a class="main-index-btn" href="./page_art_1_1.html"
+                        style="--bg: url('../Images/index/index_button.png'); --accent: #ffffff;"
+                        aria-label="">
+                        <span class="index-btn-text">
+                            <h1 data-i18n="index_button_art_1">동행 모먼트서울</h1>    
+                            <h1 data-i18n="index_button_art_1_sub">Mediascape</h1>
+                        </span>
+                    </a>
+                    
+                    <a class="main-index-btn" href="./page_art_1_1.html"
+                        style="--bg: url('../Images/index/index_button.png'); --accent: #ffffff;"
+                        aria-label="">
+                        <span class="index-btn-text">
+                            <h1 data-i18n="index_button_art_2">매력 한강네이처</h1>  
+                            <h1 data-i18n="index_button_art_2_sub">Mediascape</h1>  
+                        </span>
+                    </a>
+                    
+                    <a class="main-index-btn" href="./page_directions.html"
+                        style="--bg: url('../Images/index/index_button.png'); --accent: #ffffff;"
+                        aria-label="">
+                        <span class="index-btn-text">
+                            <h1 data-i18n="index_button_directions">오시는 길</h1>    
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="./js/script.js"></script>
+    <script src="./js/language_text.js"></script>
+</body>
+</html>

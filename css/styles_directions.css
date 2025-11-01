@@ -1,0 +1,53 @@
+
+.page_directions{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin: 0;
+}
+
+
+.map-image{
+    padding: 30px;
+}
+.map-image-img{
+    width: 100%;
+    height: auto;
+    display: flex;
+    object-fit: cover;
+    justify-content: center; /* 수평 가운데 */
+}
+@media (min-width: 768px) {
+  .art-image-img {
+    max-width: var(--container-max); 
+    margin: 0 auto;                  /* 가운데 정렬 */
+  }
+}
+
+.directions-container{    
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0px;
+  box-sizing: border-box;
+}
+
+/* 작품 설명 */
+.directions-explain{ 
+    position: relative; 
+    padding: 30px;
+}
+.directions-explain-text{
+    position: static;
+    display: block;
+    text-align: left;
+    color: #fff;          
+    z-index: 2;     
+    
+    max-width: min(100%, var(--container-max, 660px));
+    margin: 0 auto;      
+}
+.directions-explain-text h1{
+    font-size: 1.0rem;
+    font-weight: 300;
+}

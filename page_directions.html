@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Landing Page</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/styles_page.css" />
+    <link rel="stylesheet" href="./css/styles_directions.css" />
+
+    <style>
+        .audio-player{
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap : 10px;
+            align-items: center;
+            padding: 10px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 14px rgba(0,0,0,.06);
+            max-width: 720px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ================= NAV ================= -->
+    <header class="nav" id="top">
+        <section class="main-title" id="main-title">
+            <div class="main-title-overlays">
+                <div class="main-title-overlay-left">
+                        <!--style="--bg: url('Images/index_button.png'); --accent: #ffffff;"-->
+                    <button class="main-title-back-btn" onclick="goBack()"
+                        aria-label="">
+                    <img
+                        class="main-title-back-button-img"
+                        src="./Images/common/button_back_icon.png"
+                        alt=""
+                    />
+                        <span class="page-before-btn-text">
+                            <h1 data-i18n="back_button_text">뒤로가기</h1>   
+                        </span>
+                    </button>
+                </div>
+                <div class="main-title-overlay-center">
+                    <img
+                        class="main-title-center-logo-img"
+                        src="./Images/common/atelier_nodeul_logo_small.png"
+                        alt=""
+                    />
+                </div>
+
+                <div class="main-title-overlay-right">
+                    <img
+                        class="lang-dropdown-icon-img"
+                        src="./Images/common/lang_icon.png"
+                        alt=""
+                    />
+                    <div class="lang-dropdown" id="langDropdown">
+                        <select id="langSelect">
+                            <option value="ko">한국어</option>
+                            <option value="en">English</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
+                </div>
+            </div>  
+            </section>
+    </header>
+    
+    <main>
+        <!-- ================= Art ================= -->
+        <section class="directions-container" id="art-container">
+            <div class="container">
+                <div class="map-image">
+                    <img
+                        class="map-image-img"
+                        src="Images/directions/map.png"
+                        alt=""
+                    />
+                </div>
+                
+                <!-- 경로 설명 -->
+                <div class="directions-explain">           
+                    <div class="directions-explain-text">
+                        <h1 data-i18n="directions_explain">경로</h1>
+                    </div>
+                </div>
+
+
+                <!-- 페이지 공통 하단 -->
+                <div class="page-bottom">
+                    <a class="page-top-btn" href="#top" id="goTopBtn"
+                        style="--bg: url('../Images/common/button_top.png'); --accent: #ffffff;"
+                        aria-label="">
+                        <!--
+                        <span class="page-top-btn-text">
+                            <h1 data-i18n="top_button_text">TOP</h1>
+                        </span>
+                        -->
+                    </a>
+                    <a class="page-index-btn" href="./index.html"
+                        aria-label="">
+                        <span class="page-index-btn-text">
+                            <h1 data-i18n="list_button_text">list</h1>
+                        </span>
+                    </a>
+                </div>
+                <!-- 페이지 공통 하단 고정 -->
+                <div class="page-fixed-bottom">
+                    <div class="page-fixed-bottom-inner">
+                        <a class="page-before-btn" href="./page_art_1_2.html"
+                            style="--bg: url('../Images/common/button_prev.png'); --accent: #ffffff;"
+                            aria-label="">
+                            <!--
+                            <span class="page-before-btn-text">
+                                <h1 data-i18n="prev_button_text">이전</h1>
+                            </span>
+                            -->
+                        </a>
+                        <!--
+                        <a class="page-after-btn" href="./page_schedule.html"
+                            style="--bg: url('../Images/common/button_next.png'); --accent: #ffffff;"
+                            aria-label="">
+                        </a>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="./js/script.js"></script>
+    <script src="./js/script_page.js"></script>
+    <script src="./js/language_text.js"></script>
+</body>
+</html>

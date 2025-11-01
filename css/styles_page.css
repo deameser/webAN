@@ -1,0 +1,371 @@
+/* page_index를 제외한 페이지에서 고정 사용 */
+/* 상단 고정 */
+header.nav{
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    /* 보기 좋게 유리효과(선택) */
+    background: transparent;
+    -webkit-backdrop-filter: saturate(160%) blur(8px);
+    backdrop-filter: saturate(160%) blur(8px);
+    height: auto;
+}
+
+.info-top-bar {
+    position: relative;
+    padding: 0;
+    height: 80px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: transparent; 
+    overflow: hidden;
+}
+
+/* 화면이 클 때는 너무 넓어지지 않게 제한 */
+@media (min-width: 768px) {
+    .info-top-bar-img {
+        max-width: var(--container-max); 
+        margin: 0 auto;                  /* 가운데 정렬 */
+        padding: 0 1.25rem;              /* 양옆 살짝 여백 (본문과 라인 맞추기) */
+    }
+}
+
+.info-title-overlays {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.info-title-overlay-left,
+.info-title-overlay-right {
+    position: relative;
+}
+
+/* 좌상단 로고용 */
+.info-title-overlay-left {
+    left: 1rem;
+    display: flex;
+    gap: 10px;
+}
+
+/* 우상단 언어 드롭다운용 */
+.info-title-overlay-right {
+    right: 1rem;
+}
+
+.info-back-btn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    min-height: 20px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #111;
+
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f5;
+
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 1px 2px rgba(0,0,0,.06);
+    transition: transform .15s ease, box-shadow .15s ease;
+    margin-left: 10px;
+
+}
+/*
+.info-back-btn h1{
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    height: 0px;
+    margin-top: 0px;
+}
+.lang-dropdown{
+    position: relative;
+    width: 100px;
+}
+.lang-dropdown select{
+    padding: 8px 32px 8px 12px;
+    border: 1px solid #ddd;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+}
+*/
+.info-sound{
+    position: relative;
+    width: min(100%, var(--container-max, 660px));
+    margin: 0 auto;
+}
+#info-sound-audio {
+    display: none;
+}
+
+.info-sound-audio-player {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    border-radius: 32px;
+    background: url("../Images/common/sound_bg.png") center/cover no-repeat;
+    padding: 16px 16px 40px;
+    box-sizing: border-box;
+}
+.gauge-wrap {
+  position: relative;
+  width: 80%;
+  height: 20px; /* 게이지 높이 */
+  margin: 20px auto;
+  background: url("../Images/common/sound_gauge_bg.png") center/100% 100% no-repeat; /* 전체 바 */
+  --fill: 0%; /* JS에서 이 값만 바꿔줄 거임 */
+}
+.gauge-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: var(--fill);
+  background: url("../Images/common/sound_gauge_fg.png") left center / 100% 100% no-repeat;
+  /* fg 이미지를 반복해서 채우고 싶으면 repeat-x, 한 장만 늘이고 싶으면 no-repeat center/100% 100% */
+  pointer-events: none;
+}
+.gauge-wrap input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.gauge-wrap input::-webkit-slider-runnable-track {
+  background: transparent;
+}
+.gauge-wrap input::-moz-range-track {
+  background: transparent;
+}
+.gauge-wrap input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: url("./Images/common/sound_thumb.png") center/contain no-repeat;
+  border: none;
+}
+.gauge-wrap input::-moz-range-track {
+  background: transparent;
+}
+.gauge-wrap input::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: url("./Images/common/sound_thumb.png") center/contain no-repeat;
+  border: none;
+}
+.gauge-wrap #seekBar {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent;
+}
+#seekBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: url("./Images/common/sound_thumb.png") center/contain no-repeat;
+  border: none;
+  cursor: pointer;
+  margin-top: -6px; /* 트랙 중앙에 오게 살짝 올림 (트랙 높이에 맞춰서 조절) */
+}
+#seekBar::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: url("./Images/common/sound_thumb.png") center/contain no-repeat;
+  border: none;
+  cursor: pointer;
+}
+.info-sound-audio-player button {
+  position: absolute;
+  bottom: 16px;    
+  width: 40px;
+  height: 24px;
+  border: none;
+  /*border-radius: 50%;*/
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.info-sound-audio-player input[type="range"] {
+  width: 140px;
+  display: block;
+}
+#playBtn {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 왼쪽: play에서 살짝 왼쪽으로 */
+#backBtn {
+  left: calc(50% - 86px); /* 34px + 여백 정도 */
+  transform: translateX(-50%);
+  background: url("../Images/common/sound_button_before.png") center/cover no-repeat;
+}
+
+/* 오른쪽: play에서 살짝 오른쪽으로 */
+#forwardBtn {
+  left: calc(50% + 86px);
+  transform: translateX(-50%);
+  background: url("../Images/common/sound_button_after.png") center/cover no-repeat;
+}
+
+
+
+/* 하단 버튼 */
+.page-bottom{ 
+    position: relative; 
+    padding: 0px 0px;
+    border-top: 1px solid transparent;
+    margin-top: 10px;
+}
+.page-top-btn{
+    pointer-events: auto;  
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    /*padding: 10px 14px;*/
+    /*border-radius: 16px;*/
+    text-decoration: none;
+    color: #111;
+
+    /* 배경 이미지/색 */
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-color: transparent; /* 로딩 전/실패 대비 */
+
+    /*
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 1px 2px rgba(0,0,0,.06);
+    transition: transform .15s ease, box-shadow .15s ease;
+    */
+    margin: 10px auto;
+}
+.page-index-btn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    /*gap: 14px;*/
+    width: 60px;
+    min-height: 32px;
+    /*padding: 16px 18px;*/
+    border-radius: 16px;
+    text-decoration: none;
+    color: transparent;
+
+    /* 배경 이미지/색 */
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-color: transparent; /* 로딩 전/실패 대비 */
+
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 1px 2px rgba(0,0,0,.06);
+    transition: transform .15s ease, box-shadow .15s ease;
+    margin: 20px auto;
+}
+.page-top-btn h1{
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+.page-index-btn h1{
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+.page-index-btn-text{
+  margin: 0px auto;
+}
+.page-index-btn-text h1{
+  color: #fff;
+  font-size: 1.2rem;
+}
+/* 하단 고정 */
+.page-fixed-bottom{
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 1000;
+    border-top: 1px solid transparent;
+    background: transparent;
+    padding: 12px 16px;
+    padding-bottom: env(safe-area-inset-bottom);
+    pointer-events: none;
+}
+.page-fixed-bottom .page-fixed-bottom-inner{
+    width: min(100%, var(--container-max, 660px));
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    gap: 12px;
+    padding: 12px 16px;
+    pointer-events: none;
+}
+
+.page-before-btn,
+.page-after-btn{
+    pointer-events: auto;  
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /*min-height: 40px;*/
+    width: 40px;
+    height: 40px;
+    /*padding: 10px 14px;*/
+    border-radius: 12px;
+    text-decoration: none;
+    color: #111;
+
+    /* 배경 (필요 시 커스텀 변수 그대로 사용) */
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+
+    box-shadow: 0 1px 2px rgba(0,0,0,.06);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.page-before-btn h1{
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+.page-after-btn h1{
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+@media (max-width: 360px){
+    .page-fixed-bottom-inner{ gap: 8px; }
+}

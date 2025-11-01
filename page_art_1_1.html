@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Landing Page</title>
+
+    <!-- 기본 폰트 (선택사항: 안 써도 되지만 깔끔하게 보기 좋게 넣어둠) -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/styles_page.css" />
+    <link rel="stylesheet" href="./css/styles_art_1_1.css" />
+
+    <style>
+        .audio-player{
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap : 10px;
+            align-items: center;
+            padding: 10px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 14px rgba(0,0,0,.06);
+            max-width: 720px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ================= NAV ================= -->
+    <header class="nav" id="top">
+        <section class="main-title" id="main-title">
+            <div class="main-title-overlays">
+                <div class="main-title-overlay-left">
+                        <!--style="--bg: url('Images/index_button.png'); --accent: #ffffff;"-->
+                    <button class="main-title-back-btn" onclick="goBack()"
+                        aria-label="">
+                    <img
+                        class="main-title-back-button-img"
+                        src="./Images/common/button_back_icon.png"
+                        alt=""
+                    />
+                        <span class="page-before-btn-text">
+                            <h1 data-i18n="back_button_text">뒤로가기</h1>   
+                        </span>
+                    </button>
+                </div>
+                <div class="main-title-overlay-center">
+                    <img
+                        class="main-title-center-logo-img"
+                        src="./Images/common/atelier_nodeul_logo_small.png"
+                        alt=""
+                    />
+                </div>
+
+                <div class="main-title-overlay-right">
+                    <img
+                        class="lang-dropdown-icon-img"
+                        src="./Images/common/lang_icon.png"
+                        alt=""
+                    />
+                    <div class="lang-dropdown" id="langDropdown">
+                        <select id="langSelect">
+                            <option value="ko">한국어</option>
+                            <option value="en">English</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
+                </div>
+            </div>  
+            </section>
+            <div class="info-sound">
+                <audio id="info-sound-audio" src="./Sounds/bgm_1.ogg" preload="metadata" autoplay playsinline></audio>
+                <div class="info-sound-audio-player">
+                    <div class="gauge-wrap" id="gaugeWrap">
+                        <input id="seekBar" type="range" min="0" value="0" step="0.1">
+                    </div>
+                    
+                    <button id="backBtn" class="circle-btn" type="button">-10</button>
+                    <button id="playBtn" class="circle-btn" type="button">
+                        <img id="playIcon" src="./Images/common/button_next.png" alt="play">
+                    </button>
+                    <button id="forwardBtn" class="circle-btn" type="button">+10</button>
+                </div>
+            </div>
+    </header>
+    
+    <main>
+        <!-- ================= Exhibit ================= -->
+        <section class="exhibit-container" id="exhibit-container">
+            <div class="container">
+                <div class="exhibit-title">    
+                    <div class="exhibit-title-text">
+                        <h1 data-i18n="art_1_1_exhibit_title">전시 소개</h1>    
+                    </div>
+                </div>
+
+                <div class="exhibit-title-logo">
+                    <img
+                        class="exhibit-title-logo-img"
+                        src="Images/art_1/art_1_picture.png"
+                        alt=""
+                    />
+                </div>
+                
+                <div class="screen-division-line">
+                    <img
+                        class="screen-division-line-img"
+                        src="./Images/common/screen_division_line.png"
+                        alt=""
+                    />
+                </div>
+
+                <!-- 전시 소개 -->
+                <div class="exhibit-introduce">       
+                    <div class="exhibit-introduce-text">
+                        <h1 data-i18n="exhibit_introduce">전시 소개</h1>  
+                    </div>
+                </div>
+                
+                <div class="screen-division-line">
+                    <img
+                        class="screen-division-line-img"
+                        src="./Images/common/screen_division_line.png"
+                        alt=""
+                    />
+                </div>
+
+                <!-- 전시 설명 -->
+                <div class="exhibit-explain">           
+                    <div class="exhibit-explain-text">
+                        <h1 data-i18n="exhibit_explain">전시 설명</h1>  
+                    </div>
+                </div>
+
+                <div class="screen-division-line">
+                    <img
+                        class="screen-division-line-img"
+                        src="./Images/common/screen_division_line.png"
+                        alt=""
+                    />
+                </div>
+
+
+                <!-- 페이지 공통 하단 -->
+                <div class="page-bottom">
+                    <a class="page-top-btn" href="#top" id="goTopBtn"
+                        style="--bg: url('../Images/common/button_top.png'); --accent: #ffffff;"
+                        aria-label="">
+                        <!--
+                        <span class="page-top-btn-text">
+                            <h1 data-i18n="top_button_text">TOP</h1>
+                        </span>
+                        -->
+                    </a>
+                    <a class="page-index-btn" href="./index.html"
+                        aria-label="">
+                        <span class="page-index-btn-text">
+                            <h1 data-i18n="list_button_text">list</h1>
+                        </span>
+                    </a>
+                </div>
+                <!-- 페이지 공통 하단 고정 -->
+                <div class="page-fixed-bottom">
+                    <div class="page-fixed-bottom-inner">
+                        <a class="page-before-btn" href="./page_schedule.html"
+                            style="--bg: url('../Images/common/button_prev.png'); --accent: #ffffff;"
+                            aria-label="">
+                            <!--
+                            <span class="page-before-btn-text">
+                                <h1 data-i18n="prev_button_text">이전</h1>
+                            </span>
+                            -->
+                        </a>
+                        
+                        <a class="page-after-btn" href="./page_art_1_2.html"
+                            style="--bg: url('../Images/common/button_next.png'); --accent: #ffffff;"
+                            aria-label="">
+                            <!--
+                            <span class="page-after-btn-text">
+                                <h1 data-i18n="next_button_text">다음</h1>
+                            </span>
+                            -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="./js/script.js"></script>
+    <script src="./js/script_page.js"></script>
+    <script src="./js/language_text.js"></script>
+</body>
+</html>
